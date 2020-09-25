@@ -1,37 +1,39 @@
 import React from "react";
-import { TextInput, Button, StyleProp, Avatar } from "react-native-paper";
-import { View, Text } from "react-native";
+import {
+  TextInput,
+  IconButton,
+  Button,
+  StyleProp,
+  Avatar,
+} from "react-native-paper";
+import { View, Text, StyleSheet } from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome";
 function LoginForm() {
   const [text, setText] = React.useState("");
   const [text2, setText2] = React.useState("");
 
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: "#006280",
-        justifyContent: "center",
-        alignContent: "center",
-      }}
-    >
-      <View
-        style={{
-          flex: 1,
-          flexDirection: "row",
-          justifyContent: "center",
-          alignContent: "center",
-          borderColor: "black",
-          borderWidth: 2,
-        }}
-      >
-        <Avatar.Image
-          size={100}
-          style={{ borderColor: "black", borderWidth: 2 }}
-          source={require("../github.jpg")}
-        />
-        <Text>sadasd</Text>
+    <View style={styles.container}>
+      <View style={styles.header_container}>
+        <View style={styles.back_button}>
+          <IconButton
+            icon="arrow-left-drop-circle"
+            color="black"
+            size={40}
+            onPress={() => console.log("Pressed")}
+          />
+        </View>
+        <View style={styles.app_logo}>
+          <View style={{ justifyContent: "center", alignContent: "center" }}>
+            <Avatar.Image
+              size={100}
+              style={styles.app_logo}
+              source={require("../github.jpg")}
+            />
+          </View>
+        </View>
       </View>
-      <View style={{ flex: 1, marginHorizontal: 50, marginVertical: 0 }}>
+      <View style={styles.form_container}>
         <TextInput
           style={{ marginVertical: 0, paddingVertical: 0 }}
           mode="flat"
@@ -45,37 +47,22 @@ function LoginForm() {
           value={text2}
           onChangeText={(text) => setText2(text)}
         />
-        <View
-          style={{
-            flexDirection: "row",
-            margin: 0,
-            padding: 0,
-            justifyContent: "flex-start",
-            alignContent: "center",
-          }}
-        >
+        <View style={styles.forgot_password}>
           <Button
             color="white"
             mode="text"
-            uppercase="false"
-            dark="true"
+            uppercase={false}
+            dark={true}
+            compact={true}
             onPress={() => console.log("Pressed")}
           >
-            Forgot Password?
+            forgot password?
           </Button>
         </View>
-        <View
-          style={{
-            flexDirection: "row",
-            backgroundColor: "#006280",
-            marginVertical: 10,
-            justifyContent: "center",
-            alignContent: "center",
-          }}
-        >
+        <View style={styles.signin}>
           <Button
             style={{ elevation: 10 }}
-            dark="true"
+            dark={true}
             onPress={() => console.log("Pressed")}
             mode="contained"
           >
@@ -86,4 +73,46 @@ function LoginForm() {
     </View>
   );
 }
+const styles = StyleSheet.create({
+  container: {
+    flex: 2,
+    backgroundColor: "#006280",
+    justifyContent: "center",
+    alignContent: "center",
+  },
+  header_container: {
+    flex: 1,
+    justifyContent: "center",
+    alignContent: "space-around",
+  },
+  back_button: {
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignContent: "center",
+    paddingTop: 20,
+  },
+  app_logo: {
+    flex: 1,
+    flexDirection: "row",
+    marginHorizontal: 50,
+    justifyContent: "center",
+    alignContent: "center",
+    backgroundColor: "#006280",
+  },
+  form_container: { flex: 1, marginHorizontal: 50, marginVertical: 0 },
+  forgot_password: {
+    flexDirection: "row",
+    margin: 0,
+    padding: 0,
+    justifyContent: "flex-start",
+    alignContent: "center",
+  },
+  signin: {
+    flexDirection: "row",
+    backgroundColor: "#006280",
+    marginVertical: 10,
+    justifyContent: "center",
+    alignContent: "center",
+  },
+});
 export default LoginForm;
