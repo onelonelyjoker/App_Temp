@@ -8,8 +8,8 @@ function LoginForm() {
   return (
     <View
       style={{
-        flex: 1,
-        
+        flex: 2,
+        backgroundColor: "#600080",
         justifyContent: "center",
         alignContent: "center",
       }}
@@ -17,24 +17,23 @@ function LoginForm() {
       <View style={{ marginHorizontal: 50, marginVertical: 0 }}>
         <TextInput
           style={{ marginVertical: 0, paddingVertical: 0 }}
-          mode="outlined"
+          mode="flat"
           label="Email"
           value={text}
           onChangeText={(text) => setText(text)}
         />
         <TextInput
-          mode="outlined"
+          mode="flat"
           label="Password"
           value={text2}
           onChangeText={(text) => setText2(text)}
         />
         <View
           style={{
-            borderColor: "black",
-            borderWidth: 10,
-            maxWidth: 150,
+            elevation: 10,
+            marginVertical: 10,
             justifyContent: "center",
-            alignContent: "flex-end",
+            alignContent: "center",
           }}
         >
           <Button mode="contained">SIGN IN</Button>
