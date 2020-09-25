@@ -28,15 +28,25 @@ function LoginForm() {
           value={text2}
           onChangeText={(text) => setText2(text)}
         />
+        <Button
+          contentStyle={{}}
+          mode="text"
+          onPress={() => console.log("Pressed")}
+        >
+          Forgot Password?
+        </Button>
         <View
           style={{
-            elevation: 10,
+            flexDirection: "row",
+            backgroundColor: "#600080",
             marginVertical: 10,
             justifyContent: "center",
             alignContent: "center",
           }}
         >
-          <Button mode="contained">SIGN IN</Button>
+          <Button style={{ elevation: 10 }} mode="contained">
+            SIGN IN
+          </Button>
         </View>
       </View>
     </View>
